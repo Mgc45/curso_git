@@ -1,0 +1,16 @@
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/opentelemetry-javaagent.jar"
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://148.72.149.111:4317
+export OTEL_RESOURCE_ATTRIBUTES=service.name=tomcatapp
+
+
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/opentelemetry-javaagent.jar"
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://hml.aptare.com.br:4317
+export OTEL_RESOURCE_ATTRIBUTES=service.name=tomcatapp_b4b
+
+
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/opentelemetry-javaagent.jar"
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://hml.aptare.com.br:4317
+export OTEL_RESOURCE_ATTRIBUTES=service.name=tomcat_b4b
+
+
+--http://hml.aptare.com.br:3301/services

@@ -1,0 +1,62 @@
+1) https://www.hostinger.com.br/tutoriais/como-instalar-o-tomcat >> Criar serviço tomcat no ubunto
+
+******************************************************************************
+
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
+Environment=CATALINA_PID=/home/aptare/tomcat/temp/tomcat.pid
+Environment=CATALINA_Home=/home/aptare/tomcat
+Environment=CATALINA_BASE=/home/aptare/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS.awt.headless=true -Djava.security.egd=file:/dev/v/urandom'
+
+ExecStart=/home/aptare/tomcat/bin/startup.sh
+ExecStop=/home/aptare/tomcat/bin/shutdown.sh
+
+User=aptare
+Group=aptare
+UMask=0777
+RestartSec=10
+Restart=always
+
+[Install]
+
+WantedBy=multi-user.target
+************************************************************************************
+2) Como Instalar e Configurar o Docker no Ubuntu 18.04
+https://www.hostinger.com.br/tutoriais/install-docker-ubuntu?ppc_campaign=google_search_generic_hosting_all&bidkw=defaultkeyword&lo=1001538&gclid=Cj0KCQjwmICoBhDxARIsABXkXlKUAJGN5GRfSnm0ct_l1lPR6fRQQGgUbvyPGRqziW3hiihL_6BXWRkaAnWqEALw_wcB
+
+3) Como Configurar um Firewall com o UFW no Ubuntu 20.04
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-20-04-pt
+https://hostmf.com.br/central/knowledgebase/42/Abrindo-Portas-no-Firewall-do-Ubuntu-20.04-em-um-VPS.html
+
+4) Onstalação do SigNoz
+https://signoz.io/docs/install/docker/
+
+Install SigNoz Using the Install Script
+In a directory of your choosing, clone the SigNoz repository and cd into the signoz/deploy directory by entering the following commands:
+
+git clone -b main https://github.com/SigNoz/signoz.git && cd signoz/deploy/
+
+Run the install.sh script:
+
+./install.sh
+
+5)Configurar tomcat
+https://signoz.io/opentelemetry/tomcat/
+
+-- criar arquivo setenv.sh 
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/opt/opentelemetry-javaagent.jar"
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://148.72.149.111:4317
+export OTEL_RESOURCE_ATTRIBUTES=service.name=tomcatapp
+
+--------------------------------------------------------------------------------------
+
+
+
